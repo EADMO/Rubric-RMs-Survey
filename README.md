@@ -1,7 +1,8 @@
 # Seeing the Forest and the Trees: A Survey of Analytic Rubrics for Holistic Reward Modeling in LLMs
 This is the official repository of "[Seeing the Forest and the Trees: A Survey of Analytic Rubrics for Holistic Reward Modeling in LLMs]()"
 
-<p style="font-size: 20px; font-weight: bold;">Rubric Sources and Definition</p>
+
+<h2>Rubric Sources and Definition</h2>
 The concept of "Rubric" originally stems from educational assessment and psychometrics. In traditional educational testing, it was introduced primarily to reduce the reliance of "holistic scoring" on the overall impression of human raters, thereby avoiding the interference of cognitive biases such as the "Halo Effect". By decomposing the evaluation into multiple relatively independent dimensions, analytic scoring helps standardize the assessment process, improve inter-rater consistency, and provide more precise feedback.
 
 <p align="center">
@@ -49,7 +50,7 @@ symptoms, might exacerbate the condition, or have contraindications is strictly 
 </criteria 4>
 ```
 
-<p style="font-size: 20px; font-weight: bold;">Rubric RMs Definition</p>
+<h2>Rubric RMs Definition</h2>
 The core workflow of Rubric RMs consists of two phases:
 
 - Rubric Construction：Given an input , a generator produces a corresponding set of rubric criteria。  
@@ -57,26 +58,26 @@ The core workflow of Rubric RMs consists of two phases:
 
 Essentially, Rubric RMs represent a model-agnostic framework, where the rubric serves as a generated intermediate variable to guide preference learning, thereby providing supervision for model training in downstream tasks.
 
-<p style="font-size: 20px; font-weight: bold;">Rubric RMs Advantages</p>
+<h2>Rubric RMs Advantages</h2>
 
-<p style="font-size: 16px; font-weight: bold;">Fine-grained Data Synthesis</p>
+<h3>Fine-grained Data Synthesis</h3>
 
 High-quality synthetic data is crucial for the current development of LLMs. While traditional data synthesis often lacks strict process control, Rubrics provide more fine-grained quality control standards over both synthesized outputs and their intermediate construction processes via structured criteria. Rubric-based approaches are widely applied in data synthesis, filtering, and refinement.
 
 
-<p style="font-size: 16px; font-weight: bold;">Dense & Structured Supervision Signals</p>
+<h3>Dense & Structured Supervision Signals</h3>
 
 In traditional reinforcement learning, models typically receive only sparse rewards. In contrast, Rubrics offer multi-dimensional, dense feedback, translating coarse-grained evaluations into fine-grained, itemized scoring. Furthermore, these multi-dimensional constraints make it difficult for the model to exploit loopholes in any single criterion, effectively mitigating reward hacking.
 
-<p style="font-size: 16px; font-weight: bold;">Guiding Exploration as Scaffolding</p>
+<h3>Guiding Exploration as Scaffolding</h3>
 
 Sparse solution spaces limit autonomous exploration in out-of-distribution tasks, while the lack of fine-grained guidance hinders capability acquisition in long-horizon reasoning. Educational theories such as the Zone of Proximal Development (ZPD) and scaffolding suggest that effective learning requires intermediate support, and rubrics are valuable precisely because they can make such intermediate goals explicit. This shifts the focus from post hoc evaluation to joint optimization, where rubric-based rewards serve not only to assess outputs, but also to support capability acquisition during learning.
 
-<p style="font-size: 16px; font-weight: bold;">Inference-time Verification</p>
+<h3>Inference-time Verification</h3>
 
 The utility of Rubric RMs extends beyond training-time supervision directly into test-time compute. Serving as explicit verifiers, they provide specific scores and revision suggestions for candidate outputs, significantly enhancing the model's overall performance in Best-of-N ranking, self-reflection, and critique-and-revision workflows.
 
-<p style="font-size: 16px; font-weight: bold;">Domain Adaptation</p>
+<h3>Domain Adaptation</h3>
 
 In high-risk, highly specialized domains such as medicine, law, science, coding, and deep research, evaluation criteria heavily rely on profound expert knowledge. It is difficult for models to implicitly learn these standards simply through pairwise comparisons of human preferences. Rubrics offer a scalable approach to making these deep domain rules explicit, ensuring that models make decisions while strictly adhering to complex domain constraints.
 
