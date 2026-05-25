@@ -1,15 +1,33 @@
 # Seeing the Forest and the Trees: A Survey of Analytic Rubrics for Holistic Reward Modeling in LLMs
-This is the official repository of "[Seeing the Forest and the Trees: A Survey of Analytic Rubrics for Holistic Reward Modeling in LLMs]()"
+This is the official repository of "[Seeing the Forest and the Trees: A Survey of Analytic Rubrics for Holistic Reward Modeling in LLMs](https://www.preprints.org/manuscript/202605.1624)"
+
+For more details, refer to our [paper](files/Seeing%20the%20Forest%20and%20the%20Trees%20A%20Survey%20of%20Analytic%20Rubrics.pdf).
+
+If the content of this repository is helpful to your research, please consider citing our papers:
+```
+@article{202605.1624,
+	doi = {10.20944/preprints202605.1624.v1},
+	url = {https://doi.org/10.20944/preprints202605.1624.v1},
+	year = 2026,
+	month = {May},
+	publisher = {Preprints},
+	author = {Mingqing Yuan and Xiaobo Liang and Qipeng Huang and Zixuan Cai and Wanfu Wang and Yang Qiao and Pu Lu and Caishuang Huang and Meng Zhou and Lijun Wu and Juntao Li and Min Zhang},
+	title = {Seeing the Forest and the Trees: A Survey of Analytic Rubrics for Holistic Reward Modeling in LLMs},
+	journal = {Preprints}
+}
+```
+This repository is continuously maintained by the paper's authors. Contributions of the latest Rubric RMs-related papers and resources are welcome!
 
 ---
 
 <h2>Sources and Definition of Rubric</h2>
-The concept of "Rubric" originally stems from educational assessment and psychometrics. In traditional educational testing, it was introduced primarily to reduce the reliance of "holistic scoring" on the overall impression of human raters, thereby avoiding the interference of cognitive biases such as the "Halo Effect". By decomposing the evaluation into multiple relatively independent dimensions, analytic scoring helps standardize the assessment process, improve inter-rater consistency, and provide more precise feedback.
-
 <p align="center">
   <img src="./img/comparison.png"  width="70%" />
 </p>
 <p align="center">Fig 1. Trade-offs among current reward modeling paradigms in alignment risk and scalability</p>
+
+The concept of "Rubric" originally stems from educational assessment and psychometrics. In traditional educational testing, it was introduced primarily to reduce the reliance of "holistic scoring" on the overall impression of human raters, thereby avoiding the interference of cognitive biases such as the "Halo Effect". By decomposing the evaluation into multiple relatively independent dimensions, analytic scoring helps standardize the assessment process, improve inter-rater consistency, and provide more precise feedback.
+
 
 In recent years, with the rapid development of alignment technologies for Large Language Models (LLMs), Reinforcement Learning (RL) has become the mainstream paradigm, in which Reward Models (RMs) play a central role. Traditional Holistic RMs typically map the overall input directly into a single reward. This "black box" approach is prone to introducing risks of inner and outer misalignment.
 
@@ -53,19 +71,20 @@ symptoms, might exacerbate the condition, or have contraindications is strictly 
 
 ---
 
+
+
+<h2>Definition of Rubric RMs </h2>
 <p align="center">
   <img src="./img/overview.png"  width="90%" />
 </p>
 <p align="center">Fig 2. Overview of the Rubric Reward Models (Rubric RMs) framework</p>
 
-
-<h2>Definition of Rubric RMs </h2>
 The core workflow of Rubric RMs consists of two phases:
 
 - Rubric Construction: Given an input, a generator produces a corresponding set of criteria.  
 - Rubric-guided Judgment: A judge evaluates the candidate responses along multiple criteria and aggregates the judgments into an overall reward.
 
-Essentially, Rubric RMs represent a model-agnostic framework, where the rubric serves as a generated intermediate variable to guide preference learning, thereby providing supervision for model training in downstream tasks.
+Essentially, the rubric serves as a model-agnostic intermediate variable that can be integrated into both Scalar and Generative RMs to guide preference learning, thereby providing reliable supervision for downstream model training.
 
 ---
 
@@ -97,7 +116,7 @@ In high-risk, highly specialized domains such as medicine, law, science, coding,
 <h2>Future of Rubric RMs</h2>
 
 <h3>Evaluating Rubric Quality and Faithfulness</h3>
-Currently, rubrics are often treated as intermediate content in reasoning without explicit constraints or independent verification. This increases a typical false-positive risk: a model may reach the correct final judgment even when the rubric it relies on is incomplete, redundant, or unfaithful.  Consequently, developing a unified evaluation framework or meta-reward methods to systematically assess dimensions like discriminability, coverage, validity, and value alignment remains an important open problem. Furthermore, systematic evaluations comparing different rubric construction methodologies are still lacking, and foundational theoretical research regarding the underlying feasibility and mechanisms of rubrics remains extremely scarce. Ultimately, bridging these empirical and theoretical gaps is essential for transitioning Rubric RMs from heuristic tools into rigorous, trustworthy foundations for model alignment.
+Currently, rubrics are often treated as intermediate content in reasoning without explicit constraints or independent verification. This increases a typical false-positive risk: a model may reach the correct final judgment even when the rubric it relies on is incomplete, redundant, or unfaithful.  Consequently, developing a unified evaluation framework or meta-reward methods to systematically define rubric quality and assess dimensions like discriminability, coverage, validity, and value alignment remains an important open problem. Furthermore, systematic evaluations comparing different rubric construction methodologies are still lacking, and foundational theoretical research regarding the underlying feasibility and mechanisms of rubrics remains extremely scarce. Ultimately, bridging these empirical and theoretical gaps is essential for transitioning Rubric RMs from heuristic tools into rigorous, trustworthy foundations for model alignment.
 
 <h3>Identifying Common Values from Datasets</h3>
 Instance-specific rubrics are often too local to support robust reuse or transfer, and they may fail to generalize across out-of-distribution tasks. Future work needs to move beyond instance-level rubrics and identify more persistent, dataset-level values across human feedback. Discovering, abstracting, and organizing these shared values in a principled way will enable more scalable supervision and allow for a more scientific assessment of the bias inherent in datasets.
@@ -170,6 +189,7 @@ As highlighted in the Advantages section, from the perspective of educational th
 - [**MeiTuan**] CDRRM: Contrast-Driven Rubric Generation for Reliable and Interpretable Reward Modeling [[arxiv 2603.08](https://arxiv.org/abs/2603.08035)] [[code](https://github.com/ldcan/CDRRM)]
 
 **(3) List-wise**
+- [**Google**] RubricEM: Meta-RL with Rubric-guided Policy Decomposition beyond Verifiable Rewards [[arxiv 2605.10](https://arxiv.org/abs/2605.10899)]
 - [**Allen AI**] DR Tulu: Reinforcement Learning with Evolving Rubrics for Deep Research [[arxiv 2511.19](https://arxiv.org/abs/2511.19399)] [[code](https://github.com/rlresearch/dr-tulu)]
 - [**Meta**] Rethinking Rubric Generation for Improving LLM Judge and Reward Modeling for Open-ended Tasks [[arxiv 2602.05](https://arxiv.org/abs/2602.05125)]
 - [**Apple**] RubiCap: Rubric-Guided Reinforcement Learning for Dense Image Captioning [[arxiv 2603.09](https://arxiv.org/abs/2603.09160)]
@@ -221,6 +241,7 @@ As highlighted in the Advantages section, from the perspective of educational th
 - [**Scale AI**] Rubrics as Rewards: Reinforcement Learning Beyond Verifiable domains [[NeurIPS 2025](https://openreview.net/forum?id=21UFlJrmS2)]
 - [**Apple**] Checklists Are Better Than Reward Models For Aligning Language Models [[NeurIPS 2025](https://proceedings.neurips.cc/paper_files/paper/2025/hash/a6837c1dd021f76f1b4098e3722052a8-Abstract-Conference.html)] [[code](https://github.com/viswavi/RLCF)]
 - Rubric-Grounded RL: Structured Judge Rewards for Generalizable Reasoning [[arXiv 2605.08](https://arxiv.org/pdf/2605.08061)]
+- [**Allen AI**] PROMETHEUS 2: An Open Source Language Model Specialized in Evaluating Other Language Models [[EMNLP 2024](https://aclanthology.org/2024.emnlp-main.248/)] [[code](https://github.com/prometheus-eval/prometheus-eval)]
 
 **(2) Iterative refinement and construct**
 - [**Scale AI**] Chasing the Tail: Effective Rubric-based Reward  Modeling for Large Language Model Post-Training [[arXiv 2609.21](https://arxiv.org/abs/2509.21500)] [[code](https://github.com/Jun-Kai-Zhang/rubrics)]
@@ -256,6 +277,7 @@ As highlighted in the Advantages section, from the perspective of educational th
 > Dynamic synthesis updates, extracts, or regenerates rubrics online according to the current policy distribution or rollout behavior.
 
 - [**Allen AI**] DR Tulu: Reinforcement Learning with Evolving Rubrics for Deep Research [[arxiv 2511.19](https://arxiv.org/abs/2511.19399)] [[code](https://github.com/rlresearch/dr-tulu)]
+- [**Google**] RubricEM: Meta-RL with Rubric-guided Policy Decomposition beyond Verifiable Rewards [[arxiv 2605.10](https://arxiv.org/abs/2605.10899)]
 - [**Scale AI**] Online Rubrics Elicitation from Pairwise Comparisons [[arxiv 2510.07](https://arxiv.org/abs/2510.07284)]
 - [**Meta**] Compute as Teacher: Turning Inference Compute Into Reference-Free Supervision [[NeurIPS 2025 Spotlight](https://openreview.net/forum?id=wV4XfwHywy)] 
 - [**ByteDance Seed**] Reinforcing Chain-of-Thought Reasoning with Self-Evolving Rubrics [[arxiv 2602.10](https://arxiv.org/abs/2602.10885)] [[code](https://alphalab-ustc.github.io/rlcer-alphalab/)]
@@ -391,6 +413,7 @@ As highlighted in the Advantages section, from the perspective of educational th
 
 **(5) Rubric-guided exploration**
 - [**Li Auto Inc**] Breaking the Exploration Bottleneck: Rubric-Scaffolded Reinforcement Learning for General LLM Reasoning [[arXiv 202508.16](https://arxiv.org/abs/2508.16949)] [[Code](https://github.com/IANNXANG/RuscaRL)]
+- [**Google**] RubricEM: Meta-RL with Rubric-guided Policy Decomposition beyond Verifiable Rewards [[arxiv 2605.10](https://arxiv.org/abs/2605.10899)]
 - Reward and Guidance through Rubrics: Promoting Exploration to Improve Multi-Domain Reasoning [[arxiv 2511.12](https://arxiv.org/abs/2511.12344)]
 - Experience is the Best Teacher: Motivating Effective Exploration in Reinforcement Learning for LLMs [[arXiv 202603.20](https://arxiv.org/abs/2603.20046)] [[Code](https://github.com/sikelifei/HeRL)]
 - Think-with-Rubrics: From External Evaluator to Internal Reasoning Guidance [[arXiv 202605.07](https://arxiv.org/abs/2605.07461)]
@@ -432,12 +455,14 @@ As highlighted in the Advantages section, from the perspective of educational th
 - [**Ant Group**] Auto-Rubric as Reward: From Implicit Preferences to Explicit Multimodal Generative Criteria [[arXiv 2605.08](https://arxiv.org/abs/2605.08354)] [[code](https://github.com/OpenEnvision/AutoRubric-as-Reward)]
 - [**Microsoft**] RubricRL: Simple Generalizable Rewards for Text-to-Image generation [[arxiv 2511.20](https://arxiv.org/abs/2511.20651)]
 - [**Apple**] RubiCap: Rubric-Guided Reinforcement Learning for Dense Image Captioning [[arxiv 2603.09](https://arxiv.org/abs/2603.09160)]
+- [**Lionrock AI Lab**] Orcust: Stepwise-Feedback Reinforcement Learning for GUI Agent [[arxiv 2509.17](https://arxiv.org/abs/2509.17917)]
 - [**Allen AI**] When Rubrics Fail: Error Enumeration as Reward in Reference-Free RL Post-Training for Virtual Try-On [[arXiv 202603.05](https://arxiv.org/abs/2603.05659)]
 - [**Alibaba Qwen**] Rationale matters: Learning transferable rubrics via proxy-guided critique for vlm reward models [[arXiv 202603.16](https://arxiv.org/abs/2603.16600)] [[Code](https://github.com/Qwen-Applications/Proxy-GRM)]
 - Microverse: A preliminary exploration toward a micro-world simulation [[ICLR 26](https://openreview.net/forum?id=7pQv7qitFV)] [[Code](https://github.com/FreedomIntelligence/MicroVerse)]
 - [**Tencent Hunyuan**] DeltaRubric: Generative Multimodal Reward Modeling via Joint Planning and Verification [[arXiv 202605.09](https://arxiv.org/abs/2605.09269)] [[code](https://deltarubric.github.io/)]
 
 **DeepResearch**
+- [**Google**] RubricEM: Meta-RL with Rubric-guided Policy Decomposition beyond Verifiable Rewards [[arxiv 2605.10](https://arxiv.org/abs/2605.10899)]
 - [**Allen AI**] DR Tulu: Reinforcement Learning with Evolving Rubrics for Deep Research [[arxiv 2511.19](https://arxiv.org/abs/2511.19399)] [[code](https://github.com/rlresearch/dr-tulu)]
 - [**StepFun**] Step-DeepResearch Technical Report [[arxiv 2512.20](https://arxiv.org/abs/2512.20491)] [[code](https://github.com/stepfun-ai/StepDeepResearch)]
 - [**Zhipu AI**] Chaining the Evidence: Robust Reinforcement Learning for Deep Search Agents with Citation-Aware Rubric Rewards [[arxiv 2601.06](https://arxiv.org/abs/2601.06021)] [[code](https://github.com/THUDM/CaRR)]
@@ -517,17 +542,3 @@ As highlighted in the Advantages section, from the perspective of educational th
 - [**Meta**] Multimodal rewardbench: Holistic evaluation of reward models for vision language models [[arXiv 2502.14](https://arxiv.org/abs/2502.14191)] [[resource](https://github.com/facebookresearch/multimodal_rewardbench)]
 - MJ-bench: Is your multimodal reward model really a good judge for text-to-image generation? [[NeurIPS 2025](https://proceedings.neurips.cc/paper_files/paper/2025/hash/59d2eaa5842fa641ff9b8e4c7ff0f6ee-Abstract-Datasets_and_Benchmarks_Track.html)] [[resource](https://huggingface.co/datasets/MJ-Bench/MJ-Bench)]
 
----
-
-
-
-If the content of this repository is helpful to your research, please consider citing our papers:
-```
-@article{author2025seeing,
-  title={Seeing the Forest and the Trees: A Survey of Analytic Rubrics for Holistic Reward Modeling in LLMs},
-  author={Author1 and Author2},
-  journal={arXiv preprint},
-  year={2025}
-}
-```
-This repository is continuously maintained by the paper's authors. Contributions of the latest Rubric RMs-related papers and resources are welcome!
