@@ -1,7 +1,11 @@
 # Seeing the Forest and the Trees: A Survey of Analytic Rubrics for Holistic Reward Modeling in LLMs
-This is the official repository of "[Seeing the Forest and the Trees: A Survey of Analytic Rubrics for Holistic Reward Modeling in LLMs](https://www.preprints.org/manuscript/202605.1624)"
 
-For more details, refer to our [paper](files/Seeing%20the%20Forest%20and%20the%20Trees%20A%20Survey%20of%20Analytic%20Rubrics.pdf).
+<p align="center">
+  <img src="img/first_page.png" alt="paper" width="90%" />
+</p>
+
+This is the official repository of "[Seeing the Forest and the Trees: A Survey of Analytic Rubrics for Holistic Reward Modeling in LLMs](files/Seeing%20the%20Forest%20and%20the%20Trees%20A%20Survey%20of%20Analytic%20Rubrics.pdf)"
+
 
 If the content of this repository is helpful to your research, please consider citing our papers:
 ```
@@ -109,7 +113,7 @@ The utility of Rubric RMs extends beyond training-time supervision directly into
 
 <h3>Domain Adaptation</h3>
 
-In high-risk, highly specialized domains such as medicine, law, science, coding, and deep research, evaluation criteria heavily rely on profound expert knowledge. It is difficult for models to implicitly learn these standards simply through pairwise comparisons of human preferences. Rubrics offer a scalable approach to making these deep domain rules explicit, ensuring that models make decisions while strictly adhering to complex domain constraints.
+In high-stakes domains that heavily rely on expert knowledge, such as medicine, law, science, rubrics provide a highly scalable approach to translating implicit domain-specific expert requirements into explicit evaluation rules. Furthermore, in complex scenarios like DeepResearch and multimodal reasoning, rubrics can further integrate expert priors, tool feedback, and environmental interactions, serving as structured decision-making constraints.
 
 ---
 
